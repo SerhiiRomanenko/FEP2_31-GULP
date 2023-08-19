@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=REM:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/style.css">
+    <title>StarWars.com</title>
+</head>
+<body>
+
+<header class="header">
+    <div class="header__container container">
+        <div class="header__links">
+            <a href="#">
+                <img class="header__soc" src="images/icons/instagram__logo.png" alt="instagram logo">
+            </a>
+            <a href="#">
+                <img class="header__soc" src="images/icons/facebook__logo.png" alt="facebook logo">
+            </a>
+            <a href="#">
+                <img class="header__soc" src="images/icons/watsapp__logo.png" alt="whatsapp logo">
+            </a>
+            <a href="#">
+                <img class="header__soc" src="images/icons/telegram__logo.png" alt="telegram logo">
+            </a>
+            <a href="#">
+                <img class="header__soc" src="images/icons/twitter__logo.png" alt="twitter logo">
+            </a>
+        </div>
+        <a href="index.html">
+            <img class="header__home" src="images/pictures/star_wars_logo.png" alt="Star Wars LOGO">
+        </a>
+        <div class="header__actions">
+            <a class="header__search" href="./index.html">MAIN</a>
+            <a class="header__signIn" href="./about.html">ABOUT</a>
+        </div>
+    </div>
+</header>
+
+<main class="main">
+    <div class="main__container container">
+        <!--=====================================================================================SLIDER=========================================================================-->
+        <div id="carouselExampleIndicators" class="main__slider carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                        aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
+                        aria-label="Slide 6"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./images/pictures/slider__1.jpg" class="d-block w-100" alt="slider">
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/pictures/slider__2.jpeg" class="d-block w-100" alt="slider">
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/pictures/slider__3.jpeg" class="d-block w-100" alt="slider">
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/pictures/slider__4.jpeg" class="d-block w-100" alt="slider">
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/pictures/slider__5.jpeg" class="d-block w-100" alt="slider">
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/pictures/slider__6.jpeg" class="d-block w-100" alt="slider">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <!--================================================================================NAVIGATION=========================================================================-->
+        <div class="main__navigation btn-group" role="group" aria-label="Basic mixed styles example">
+            <button type="button" class="main__characters btn btn-danger">Characters</button>
+            <button type="button" class="main__planets btn btn-warning">Planets</button>
+            <button type="button" class="main__transport btn btn-success">Transport</button>
+        </div>
+        <!--================================================================================SHOW-BOX=========================================================================-->
+        <div class=" album main__album">
+            <div class="container">
+                <div class="main__showCont row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+                </div>
+            </div>
+        </div>
+        <div class="main__pagination"></div>
+    </div>
+</main>
+@@include("./modules/footer.html");
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+<script src="main.js"></script>
+</body>
+</html>
