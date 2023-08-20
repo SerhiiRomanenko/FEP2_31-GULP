@@ -6,15 +6,15 @@ const URL = "https://swapi.dev/api/";
 
 //------------------------------------------------------------------------------function RENDER PEOPLE------------------------------------------------//
 function closeCard() {
-  $showBox.innerHTML = "";
+    $showBox.innerHTML = "";
 }
 
 function renderPeople(people) {
-  $showBox.innerHTML = "";
-  people.results.forEach((item) => {
-    const div = document.createElement("div");
-    div.classList.add("col");
-    div.innerHTML += `
+    $showBox.innerHTML = "";
+    people.results.forEach((item) => {
+        const div = document.createElement("div");
+        div.classList.add("col");
+        div.innerHTML += `
                           <div class="card" style="width: 18rem;">
                               <div class="card-body">
                                 <h5 class="card-title">${item.name}</h5>
@@ -27,24 +27,24 @@ function renderPeople(people) {
                               </div>
                            </div>
                     `;
-    $showBox.append(div);
-  });
+        $showBox.append(div);
+    });
 }
 
 //------------------------------------------------------------------------------function RENDER ONE CARD PERSON------------------------------------------------//
 function showCardPerson(card) {
-  const xhr = new XMLHttpRequest();
-  xhr.open("GET", card.getAttribute("data-url"));
-  xhr.addEventListener("load", function (event) {
-    if (xhr.status !== 200) {
-      throw new Error(`HTTP error: status ${xhr.status}`);
-    } else {
-      $showBox.innerHTML = "";
-      $pagination.innerHTML = "";
-      const data = JSON.parse(xhr.response);
-      const div = document.createElement("div");
-      div.classList.add("col", "oneCardPerson");
-      div.innerHTML = `
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", card.getAttribute("data-url"));
+    xhr.addEventListener("load", function (event) {
+        if (xhr.status !== 200) {
+            throw new Error(`HTTP error: status ${xhr.status}`);
+        } else {
+            $showBox.innerHTML = "";
+            $pagination.innerHTML = "";
+            const data = JSON.parse(xhr.response);
+            const div = document.createElement("div");
+            div.classList.add("col", "oneCardPerson");
+            div.innerHTML = `
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">${data.name}</h5>
@@ -59,19 +59,19 @@ function showCardPerson(card) {
                 </div>
             </div>
         `;
-      $showBox.append(div);
-    }
-  });
-  xhr.send();
+            $showBox.append(div);
+        }
+    });
+    xhr.send();
 }
 
 //------------------------------------------------------------------------------function RENDER PLANETS------------------------------------------------//
 function renderPlanets(planets) {
-  $showBox.innerHTML = "";
-  planets.results.forEach((item) => {
-    const div = document.createElement("div");
-    div.classList.add("col");
-    div.innerHTML += `
+    $showBox.innerHTML = "";
+    planets.results.forEach((item) => {
+        const div = document.createElement("div");
+        div.classList.add("col");
+        div.innerHTML += `
             <div class="card" style="width: 18rem;">
                               <div class="card-body">
                                 <h5 class="card-title">${item.name}</h5>
@@ -84,27 +84,27 @@ function renderPlanets(planets) {
                               </div>
                            </div>
         `;
-    $showBox.append(div);
-  });
+        $showBox.append(div);
+    });
 }
 
 //------------------------------------------------------------------------------function RENDER ONE CARD PLANET------------------------------------------------//
 function showCardPlanet(planet) {
-  const promise = fetch(planet.getAttribute("data-url"));
-  promise
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error: ${response.status}`);
-      } else {
-        return response.json();
-      }
-    })
-    .then((data) => {
-      $showBox.innerHTML = "";
-      $pagination.innerHTML = "";
-      const div = document.createElement("div");
-      div.classList.add("col");
-      div.innerHTML += `
+    const promise = fetch(planet.getAttribute("data-url"));
+    promise
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+            } else {
+                return response.json();
+            }
+        })
+        .then((data) => {
+            $showBox.innerHTML = "";
+            $pagination.innerHTML = "";
+            const div = document.createElement("div");
+            div.classList.add("col");
+            div.innerHTML += `
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">${data.name}</h5>
@@ -120,18 +120,18 @@ function showCardPlanet(planet) {
                         </div>
                     </div>
                 `;
-      $showBox.append(div);
-    })
-    .catch((error) => console.log(error));
+            $showBox.append(div);
+        })
+        .catch((error) => console.log(error));
 }
 
 //------------------------------------------------------------------------------function RENDER STARSHIPS------------------------------------------------//
 function renderStarships(ships) {
-  $showBox.innerHTML = "";
-  ships.results.forEach((item) => {
-    const div = document.createElement("div");
-    div.classList.add("col");
-    div.innerHTML += `
+    $showBox.innerHTML = "";
+    ships.results.forEach((item) => {
+        const div = document.createElement("div");
+        div.classList.add("col");
+        div.innerHTML += `
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">${item.name}</h5>
@@ -144,27 +144,27 @@ function renderStarships(ships) {
                 </div>
             </div>
         `;
-    $showBox.append(div);
-  });
+        $showBox.append(div);
+    });
 }
 
 //------------------------------------------------------------------------------function RENDER ONE CARD STARSHIP------------------------------------------------//
 function showCardShip(ship) {
-  async function getStarships() {
-    const response = await fetch(ship.getAttribute("data-url"));
-    if (!response.ok) {
-      throw new Error(`HTTP failed: ${response.status}`);
-    } else {
-      return await response.json();
+    async function getStarships() {
+        const response = await fetch(ship.getAttribute("data-url"));
+        if (!response.ok) {
+            throw new Error(`HTTP failed: ${response.status}`);
+        } else {
+            return await response.json();
+        }
     }
-  }
 
-  getStarships().then((starship) => {
-    $showBox.innerHTML = "";
-    $pagination.innerHTML = "";
-    const div = document.createElement("div");
-    div.classList.add("col");
-    div.innerHTML += `
+    getStarships().then((starship) => {
+        $showBox.innerHTML = "";
+        $pagination.innerHTML = "";
+        const div = document.createElement("div");
+        div.classList.add("col");
+        div.innerHTML += `
                           <div class="card" style="width: 18rem;">
                               <div class="card-body">
                                 <h5 class="card-title">${starship.name}</h5>
@@ -184,114 +184,114 @@ function showCardShip(ship) {
                               </div>
                            </div>
                     `;
-    $showBox.append(div);
-  });
+        $showBox.append(div);
+    });
 }
 
 function showPagination(allCards, figure) {
-  // rendered pagination
-  $pagination.innerHTML = "";
-  let pagination = null;
-  if (allCards.count % 10 === 0) {
-    pagination = allCards.count / 10;
-  } else {
-    pagination = Math.floor(allCards.count / 10) + 1;
-  }
-  const markUp = document.createElement("ul");
-  markUp.classList.add("main__paginationList", "pagination", "pagination-lg");
-  for (let i = 1; i <= pagination; i++) {
-    markUp.innerHTML += `
+    // rendered pagination
+    $pagination.innerHTML = "";
+    let pagination = null;
+    if (allCards.count % 10 === 0) {
+        pagination = allCards.count / 10;
+    } else {
+        pagination = Math.floor(allCards.count / 10) + 1;
+    }
+    const markUp = document.createElement("ul");
+    markUp.classList.add("main__paginationList", "pagination", "pagination-lg");
+    for (let i = 1; i <= pagination; i++) {
+        markUp.innerHTML += `
                 <li class="page-item">
                     <a class="main__paginationItem page-link ${
-                      i === 1 ? "pagin__active" : ""
-                    }"  data-pageUrl=${
-      URL + figure + `/?page=${i}`
-    } onclick=renderPagesPagination(this)>${i}</a>
+            i === 1 ? "pagin__active" : ""
+        }"  data-pageUrl=${
+            URL + figure + `/?page=${i}`
+        } onclick=renderPagesPagination(this)>${i}</a>
                 </li>
         `;
-  }
-  $pagination.append(markUp);
+    }
+    $pagination.append(markUp);
 }
 
 function renderPagesPagination(button) {
-  const allPuginButtons = $pagination.querySelectorAll(".main__paginationItem");
-  allPuginButtons.forEach((item) => {
-    item.classList.remove("pagin__active");
-  });
-  button.classList.add("pagin__active");
+    const allPuginButtons = $pagination.querySelectorAll(".main__paginationItem");
+    allPuginButtons.forEach((item) => {
+        item.classList.remove("pagin__active");
+    });
+    button.classList.add("pagin__active");
 
-  async function renderPagin() {
-    const response = await fetch(button.getAttribute("data-pageUrl"));
+    async function renderPagin() {
+        const response = await fetch(button.getAttribute("data-pageUrl"));
 
-    if (!response.ok) {
-      throw new Error(`Error HTTP: Status ${response.status}`);
-    } else {
-      const result = await response.json();
-      if (button.getAttribute("data-pageUrl").includes("people")) {
-        renderPeople(result);
-      } else if (button.getAttribute("data-pageUrl").includes("planets")) {
-        renderPlanets(result);
-      } else if (button.getAttribute("data-pageUrl").includes("starships")) {
-        renderStarships(result);
-      }
+        if (!response.ok) {
+            throw new Error(`Error HTTP: Status ${response.status}`);
+        } else {
+            const result = await response.json();
+            if (button.getAttribute("data-pageUrl").includes("people")) {
+                renderPeople(result);
+            } else if (button.getAttribute("data-pageUrl").includes("planets")) {
+                renderPlanets(result);
+            } else if (button.getAttribute("data-pageUrl").includes("starships")) {
+                renderStarships(result);
+            }
+        }
     }
-  }
 
-  renderPagin();
+    renderPagin();
 }
 
 //------------------------------------------------------------------------------EVENT DELEGATION------------------------------------------------//
 $navigation.addEventListener("click", function (event) {
-  event.preventDefault();
+    event.preventDefault();
 
-  //-------------------------------------------------------------------CLICK PERSONS (XML requests)------------------------------------------------//
-  if (event.target.classList.contains("main__characters")) {
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", URL + "people");
-    xhr.addEventListener("load", function () {
-      if (xhr.status !== 200) {
-        console.log(`HTTP error: status ${xhr.status}`);
-      } else {
-        const data = JSON.parse(xhr.response);
-        renderPeople(data); // rendered People
-        showPagination(data, "people");
-      }
-    });
-    xhr.send();
-  }
-
-  //-----------------------------------------------------------------------CLICK PLANETS (FETCH)------------------------------------------------//
-  else if (event.target.classList.contains("main__planets")) {
-    const promise = fetch(URL + "planets");
-    promise
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error: ${response.status}`);
-        } else {
-          return response.json();
-        }
-      })
-      .then((data) => {
-        renderPlanets(data); // rendered Planets
-        showPagination(data, "planets");
-      })
-      .catch((error) => console.log(error));
-  }
-
-  //-------------------------------------------------------------CLICK TRANSPORT (async await FETCH)------------------------------------------------//
-  else if (event.target.classList.contains("main__transport")) {
-    async function getStarships() {
-      const response = await fetch(URL + "starships");
-      if (!response.ok) {
-        throw new Error(`HTTP failed: ${response.status}`);
-      } else {
-        return await response.json();
-      }
+    //-------------------------------------------------------------------CLICK PERSONS (XML requests)------------------------------------------------//
+    if (event.target.classList.contains("main__characters")) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", URL + "people");
+        xhr.addEventListener("load", function () {
+            if (xhr.status !== 200) {
+                console.log(`HTTP error: status ${xhr.status}`);
+            } else {
+                const data = JSON.parse(xhr.response);
+                renderPeople(data); // rendered People
+                showPagination(data, "people");
+            }
+        });
+        xhr.send();
     }
 
-    getStarships().then((starships) => {
-      renderStarships(starships); // rendered Ships
-      showPagination(starships, "starships"); // rendered pagination
-    });
-  }
+    //-----------------------------------------------------------------------CLICK PLANETS (FETCH)------------------------------------------------//
+    else if (event.target.classList.contains("main__planets")) {
+        const promise = fetch(URL + "planets");
+        promise
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error: ${response.status}`);
+                } else {
+                    return response.json();
+                }
+            })
+            .then((data) => {
+                renderPlanets(data); // rendered Planets
+                showPagination(data, "planets");
+            })
+            .catch((error) => console.log(error));
+    }
+
+    //-------------------------------------------------------------CLICK TRANSPORT (async await FETCH)------------------------------------------------//
+    else if (event.target.classList.contains("main__transport")) {
+        async function getStarships() {
+            const response = await fetch(URL + "starships");
+            if (!response.ok) {
+                throw new Error(`HTTP failed: ${response.status}`);
+            } else {
+                return await response.json();
+            }
+        }
+
+        getStarships().then((starships) => {
+            renderStarships(starships); // rendered Ships
+            showPagination(starships, "starships"); // rendered pagination
+        });
+    }
 });

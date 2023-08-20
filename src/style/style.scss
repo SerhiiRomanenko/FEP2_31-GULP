@@ -1,9 +1,10 @@
 @import "reset.scss";
+@import "variables";
 
 //======================================================GENERAL===============================================//
 
 html, body {
-  background-color: #000000;
+  background-color: $backgroundColor;
   font-family: 'REM', sans-serif;
 }
 
@@ -39,9 +40,9 @@ a {
   }
 
   &__actions > a {
-    color: white;
-    font-size: 25px;
-    padding-left: 25px;
+    color: $textColor;
+    font-size: $textSize;
+    padding-left: $textSize;
   }
 }
 
@@ -51,7 +52,7 @@ a {
 
   &__container {
     padding-bottom: 20px;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid $textColor;
   }
 
   &__slider {
@@ -73,7 +74,7 @@ a {
   }
 
   &__paginationItem {
-    color: black;
+    color: $backgroundColor;
   }
 }
 
@@ -93,11 +94,11 @@ a {
 //======================================================FOOTER===============================================//
 
 .footer {
-  color: white;
+  color: $textColor;
   padding-top: 10px;
 
   &__link {
-    color: white;
+    color: $textColor;
     text-decoration: underline;
   }
 
@@ -111,6 +112,6 @@ a {
 }
 
 .spinner-border {
-  color: white;
+  color: $textColor;
   margin: 0 auto;
 }
