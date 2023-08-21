@@ -93,25 +93,3 @@ a {
 
 //======================================================FOOTER===============================================//
 
-.footer {
-  color: $textColor;
-  padding-top: 10px;
-
-  &__link {
-    color: $textColor;
-    text-decoration: underline;
-  }
-
-  &__menu {
-    display: flex;
-    margin-top: 15px;
-    justify-content: space-between;
-    font-size: 12px;
-  }
-
-}
-
-.spinner-border {
-  color: $textColor;
-  margin: 0 auto;
-}

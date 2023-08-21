@@ -5,6 +5,8 @@ const sourcemaps = require('gulp-sourcemaps');
 const rename = require("gulp-rename");
 const uglify = require('gulp-uglify');
 const browserSync = require("browser-sync").create();
+const babelMinify = require("gulp-babel-minify");
+const concat = require('gulp-concat');
 
 function defaultTask(cb) {
     cb();
@@ -21,6 +23,7 @@ function HTMLTask() {
 
 function CSSTask() {
     return src("src/style/**/*.scss")
+        .pipe(concat('main.scss'))
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: "compressed"}).on("error", sass.logError))
         .pipe(rename({suffix: ".min"}))
@@ -31,6 +34,8 @@ function CSSTask() {
 function JSTask() {
     return src("src/*.js")
         .pipe(uglify())
+        .pipe(babelMinify())
+        .pipe(concat('main.js'))
         .pipe(rename({suffix: ".min"}))
         .pipe(dest('dest/'))
 }
